@@ -1,0 +1,89 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="section-label">Selected projects</h2>
+  <div class="section-body list">
+    {
+      site.projects.map((project) => (
+        <article class="project">
+          <div class="head">
+            <h3>{project.name}</h3>
+            <span class="kind">{project.kind}</span>
+          </div>
+          <p class="desc">{project.description}</p>
+          <p class="stack">{project.stack.join(' · ')}</p>
+          <div class="links">
+            {project.links.map((link) => (
+              <a href={link.href}>{link.label}</a>
+            ))}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 0 36px;
+  }
+
+  .project + .project {
+    border-top: 1px solid var(--color-divider);
+    padding-top: 36px;
+  }
+
+  .project:last-child {
+    padding-bottom: 0;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.375rem;
+    font-weight: 500;
+  }
+
+  .kind {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .project p {
+    margin: 0;
+  }
+
+  .desc {
+    color: var(--color-body-2);
+    max-width: 40rem;
+  }
+
+  .stack {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+  }
+
+  .links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.9375rem;
+  }
+</style>

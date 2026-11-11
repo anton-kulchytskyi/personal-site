@@ -1,12 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
 ---
 
-<Base
-  title="Anton Kulchytskyi — Full-Stack Developer"
-  description="Full-stack developer with a frontend focus: React, Next.js, TypeScript and Python."
->
-  <main class="container">
-    <h1>Anton Kulchytskyi</h1>
-  </main>
+<Base title={site.meta.title} description={site.meta.description}>
+  <div class="container">
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      <Projects />
+    </main>
+    <Footer />
+  </div>
 </Base>

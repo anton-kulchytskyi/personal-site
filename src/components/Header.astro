@@ -1,0 +1,55 @@
+---
+import { site } from '../data/site';
+
+const homeLabel = `${site.name.first} ${site.name.last}, home`;
+---
+
+<header class="header">
+  <a href="#top" class="logo" aria-label={homeLabel}>
+    <svg aria-hidden="true" width="36" height="28" viewBox="0 0 276 216">
+      <polygon points="108,0 0,216 60,216 84,168 108.8,168 108.8,1.6" fill="#93B8E0"></polygon>
+      <polygon points="216,0 276,0 221.6,108.8 161.6,108.8" fill="#93B8E0"></polygon>
+      <polygon points="108,0 162,108 216.8,216 156,216 132,168 108,168" fill="#D6E9FC"></polygon>
+      <polygon points="162,108 222,108 276,216 216,216" fill="#5A7FA4"></polygon>
+    </svg>
+  </a>
+  <nav aria-label="Main" class="nav">
+    {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 0;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    border-bottom: none;
+  }
+
+  .logo svg {
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 0.9375rem;
+    flex-wrap: wrap;
+  }
+
+  .nav a {
+    border-bottom: none;
+    color: var(--color-muted);
+  }
+
+  .nav a:hover {
+    color: var(--color-accent);
+  }
+</style>

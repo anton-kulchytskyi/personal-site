@@ -1,0 +1,64 @@
+---
+import { site } from '../data/site';
+
+const { copyrightYear, oldSite } = site.footer;
+---
+
+<footer id="contact" class="footer">
+  <div class="contact">
+    <p class="heading">{site.contact.heading}</p>
+    <a href={`mailto:${site.email}`} class="email">{site.email}</a>
+  </div>
+  <div class="bottom">
+    <span>© {copyrightYear} {site.name.first} {site.name.last}</span>
+    <a href={oldSite.href} class="old-site">{oldSite.label}</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-divider);
+    padding: 56px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .heading {
+    margin: 0;
+    font-family: var(--ak-font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1;
+  }
+
+  .email {
+    align-self: flex-start;
+    font-size: 1.25rem;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .old-site {
+    color: var(--color-muted);
+  }
+
+  .old-site:hover {
+    color: var(--color-accent);
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="about" class="section" aria-labelledby="about-title">
+  <h2 id="about-title" class="section-label">About</h2>
+  <div class="section-body about">
+    <p class="lead">{site.about}</p>
+    <dl class="skills">
+      {
+        site.skills.map((group) => (
+          <div>
+            <dt>{group.label}</dt>
+            <dd>{group.items.join(', ')}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .lead {
+    margin: 0;
+    font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
+    line-height: 1.55;
+    max-width: 44rem;
+  }
+
+  .skills {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px 32px;
+    font-size: 0.9375rem;
+  }
+
+  dt {
+    color: var(--color-muted);
+    margin-bottom: 4px;
+  }
+
+  dd {
+    margin: 0;
+  }
+</style>

@@ -92,8 +92,8 @@ The phone number is intentionally **not** on the site.
 
 ## Status
 
-- [x] Phase 1 — Scaffold (awaiting Anton's confirmation to start Phase 2)
-- [ ] Phase 2 — Sections
+- [x] Phase 1 — Scaffold
+- [x] Phase 2 — Sections (awaiting Anton's confirmation to start Phase 3). Verified against design/index.html at 1440/390/360 px: element boxes, font sizes and colors match exactly.
 - [ ] Phase 3 — Content
 - [ ] Phase 4 — SEO & polish
 - [ ] Phase 5 — Deploy
@@ -102,4 +102,6 @@ Decisions:
 - Repo name: `personal-site` (separate from the `anton-kulchytskyi` profile-README repo). Deploy target: GitHub Pages project site `https://anton-kulchytskyi.github.io/personal-site/`, so `base: '/personal-site'` is set in `astro.config.mjs`; all internal URLs must go through `import.meta.env.BASE_URL`.
 - Remote: `origin` = https://github.com/anton-kulchytskyi/personal-site.git, branch `main`.
 - Toolchain: Node 26 LTS (Astro 7 needs >= 22.23.4), pnpm 12 installed globally via npm (Node 25+ dropped corepack). TypeScript pinned to ^6 because `astro check` does not support TS 7 yet.
+- `.container` uses `box-sizing: content-box` on purpose: in the design 1080px is the content width and the gutters sit outside it.
+- Deviation from design: nav links and the footer "First version" link turn accent on hover (in the design their inline color blocked the hover state).
 - Machine notes: shared Windows PC; `C:\nvm4w` belongs to another user's nvm, Anton uses the plain Node install in `C:\Program Files\nodejs`. `gh` CLI is not installed.

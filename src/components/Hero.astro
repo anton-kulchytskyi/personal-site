@@ -1,0 +1,64 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <h1 id="hero-title">
+    {site.name.first}<br />{site.name.last}
+  </h1>
+  <div class="intro">
+    <p class="role">{site.role}</p>
+    <p class="tagline">{site.tagline.join(' · ')}</p>
+  </div>
+  <div class="meta">
+    <span>{site.location}</span>
+    {site.socials.map((link) => <a href={link.href}>{link.label}</a>)}
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: clamp(72px, 14vw, 160px) 0 clamp(72px, 12vw, 136px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--ak-font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    line-height: 0.95;
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .intro p {
+    margin: 0;
+  }
+
+  .role {
+    font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+    font-weight: 500;
+  }
+
+  .tagline {
+    font-size: 1.125rem;
+    color: var(--color-accent);
+  }
+
+  .meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+</style>
