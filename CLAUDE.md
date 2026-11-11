@@ -95,8 +95,8 @@ The phone number is intentionally **not** on the site.
 - [x] Phase 1 — Scaffold
 - [x] Phase 2 — Sections. Verified against design/index.html at 1440/390/360 px: element boxes, font sizes and colors match exactly.
 - [x] Phase 3 — Content. All links taken from Anton's CV PDF; GitHub URL confirmed.
-- [x] Phase 4 — SEO & polish (awaiting Anton's confirmation to start Phase 5). Lighthouse 12 mobile on `astro preview`: Performance 100, Accessibility 100, Best Practices 100, SEO 100 (FCP 1.2 s, LCP 1.4 s, TBT 0 ms, CLS 0).
-- [ ] Phase 5 — Deploy
+- [x] Phase 4 — SEO & polish. Lighthouse 12 mobile on `astro preview`: Performance 100, Accessibility 100, Best Practices 100, SEO 100 (FCP 1.2 s, LCP 1.4 s, TBT 0 ms, CLS 0).
+- [x] Phase 5 — Deploy. Live at https://anton-kulchytskyi.github.io/personal-site/ via `.github/workflows/deploy.yml` (withastro/action@v6, Node 26, pnpm 12.18.0); every push to `main` redeploys. Pages source = GitHub Actions. Old `/CV/` still live.
 
 Decisions:
 - Repo name: `personal-site` (separate from the `anton-kulchytskyi` profile-README repo). Deploy target: GitHub Pages project site `https://anton-kulchytskyi.github.io/personal-site/`, so `base: '/personal-site'` is set in `astro.config.mjs`; all internal URLs must go through `import.meta.env.BASE_URL`.
