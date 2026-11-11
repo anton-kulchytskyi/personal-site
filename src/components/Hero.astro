@@ -1,27 +1,45 @@
 ---
 import { site, linkAttrs } from '../data/site';
+import HeroMark from './HeroMark.astro';
 ---
 
 <section id="top" class="hero" aria-labelledby="hero-title">
-  <h1 id="hero-title">
-    {site.name.first}<br />{site.name.last}
-  </h1>
-  <div class="intro">
-    <p class="role">{site.role}</p>
-    <p class="tagline">{site.tagline.join(' · ')}</p>
+  <div class="hero-text">
+    <h1 id="hero-title">
+      {site.name.first}<br />{site.name.last}
+    </h1>
+    <div class="intro">
+      <p class="role">{site.role}</p>
+      <p class="tagline">{site.tagline.join(' · ')}</p>
+    </div>
+    <div class="meta">
+      <span>{site.location}</span>
+      {site.socials.map((link) => <a href={link.href} {...linkAttrs(link.href)}>{link.label}</a>)}
+    </div>
   </div>
-  <div class="meta">
-    <span>{site.location}</span>
-    {site.socials.map((link) => <a href={link.href} {...linkAttrs(link.href)}>{link.label}</a>)}
-  </div>
+  <HeroMark />
 </section>
 
 <style>
   .hero {
     padding: clamp(72px, 14vw, 160px) 0 clamp(72px, 12vw, 136px);
+  }
+
+  .hero-text {
     display: flex;
     flex-direction: column;
     gap: 28px;
+    min-width: 0;
+  }
+
+  /* Text left, decorative mark right */
+  @media (min-width: 960px) {
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 48px;
+    }
   }
 
   h1 {

@@ -1,0 +1,139 @@
+---
+// Decorative AK mark for the hero (≥ 960px only).
+// Pure CSS: facets assemble once on load, then a faint light sweep every 12s.
+---
+
+<svg
+  class="hero-mark"
+  viewBox="0 0 276 216"
+  aria-hidden="true"
+  focusable="false"
+>
+  <!-- Base facets (slightly overlapped so there are no seams) -->
+  <polygon class="facet facet--left" points="108,0 0,216 60,216 84,168 108.8,168 108.8,1.6"></polygon>
+  <polygon class="facet facet--k-upper" points="216,0 276,0 221.6,108.8 161.6,108.8"></polygon>
+  <polygon class="facet facet--right" points="108,0 162,108 216.8,216 156,216 132,168 108,168"></polygon>
+  <polygon class="facet facet--k-lower" points="162,108 222,108 276,216 216,216"></polygon>
+
+  <!-- Highlight overlays, swept left → right -->
+  <polygon class="glint glint--1" points="108,0 0,216 60,216 84,168 108,168"></polygon>
+  <polygon class="glint glint--2" points="108,0 162,108 216,216 156,216 132,168 108,168"></polygon>
+  <polygon class="glint glint--3" points="216,0 276,0 222,108 162,108"></polygon>
+  <polygon class="glint glint--4" points="162,108 222,108 276,216 216,216"></polygon>
+</svg>
+
+<style>
+  .hero-mark {
+    display: none;
+  }
+
+  @media (min-width: 960px) {
+    .hero-mark {
+      display: block;
+      /* Box is reserved up front, so the animation causes no layout shift */
+      width: clamp(220px, 26vw, 340px);
+      height: auto;
+      aspect-ratio: 276 / 216;
+      overflow: visible;
+    }
+  }
+
+  .facet,
+  .glint {
+    transform-box: fill-box;
+  }
+
+  .facet {
+    animation: assemble 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .facet--left {
+    fill: var(--ak-sky-300);
+    --dx: -24px;
+    --dy: 48px;
+    animation-delay: 0s;
+  }
+
+  .facet--right {
+    fill: var(--ak-sky-100);
+    --dx: 24px;
+    --dy: 48px;
+    animation-delay: 0.12s;
+  }
+
+  .facet--k-upper {
+    fill: var(--ak-sky-300);
+    --dx: 24px;
+    --dy: -48px;
+    animation-delay: 0.25s;
+  }
+
+  .facet--k-lower {
+    fill: var(--ak-sky-500);
+    --dx: 24px;
+    --dy: 48px;
+    animation-delay: 0.38s;
+  }
+
+  .glint {
+    fill: var(--ak-highlight);
+    opacity: 0;
+    animation: sweep 12s ease-in-out infinite;
+  }
+
+  .glint--1 {
+    animation-delay: 2s;
+  }
+
+  .glint--2 {
+    animation-delay: 2.35s;
+  }
+
+  .glint--3 {
+    animation-delay: 2.65s;
+  }
+
+  .glint--4 {
+    animation-delay: 2.9s;
+  }
+
+  @keyframes assemble {
+    from {
+      opacity: 0;
+      transform: translate(var(--dx), var(--dy));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes sweep {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.12;
+    }
+    28% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .facet,
+    .glint {
+      animation: none;
+    }
+
+    .facet {
+      opacity: 1;
+      transform: none;
+    }
+
+    .glint {
+      opacity: 0;
+    }
+  }
+</style>
