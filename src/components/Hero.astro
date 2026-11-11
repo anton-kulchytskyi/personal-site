@@ -1,5 +1,5 @@
 ---
-import { site } from '../data/site';
+import { site, linkAttrs } from '../data/site';
 ---
 
 <section id="top" class="hero" aria-labelledby="hero-title">
@@ -12,7 +12,7 @@ import { site } from '../data/site';
   </div>
   <div class="meta">
     <span>{site.location}</span>
-    {site.socials.map((link) => <a href={link.href}>{link.label}</a>)}
+    {site.socials.map((link) => <a href={link.href} {...linkAttrs(link.href)}>{link.label}</a>)}
   </div>
 </section>
 

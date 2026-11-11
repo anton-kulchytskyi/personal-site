@@ -93,8 +93,8 @@ The phone number is intentionally **not** on the site.
 ## Status
 
 - [x] Phase 1 — Scaffold
-- [x] Phase 2 — Sections (awaiting Anton's confirmation to start Phase 3). Verified against design/index.html at 1440/390/360 px: element boxes, font sizes and colors match exactly.
-- [ ] Phase 3 — Content
+- [x] Phase 2 — Sections. Verified against design/index.html at 1440/390/360 px: element boxes, font sizes and colors match exactly.
+- [x] Phase 3 — Content (awaiting Anton's confirmation to start Phase 4). All links taken from Anton's CV PDF; GitHub URL confirmed.
 - [ ] Phase 4 — SEO & polish
 - [ ] Phase 5 — Deploy
 
@@ -104,4 +104,8 @@ Decisions:
 - Toolchain: Node 26 LTS (Astro 7 needs >= 22.23.4), pnpm 12 installed globally via npm (Node 25+ dropped corepack). TypeScript pinned to ^6 because `astro check` does not support TS 7 yet.
 - `.container` uses `box-sizing: content-box` on purpose: in the design 1080px is the content width and the gutters sit outside it.
 - Deviation from design: nav links and the footer "First version" link turn accent on hover (in the design their inline color blocked the hover state).
+- All external (http/https) links open in a new tab via `linkAttrs()` in `site.ts`; `mailto:` and in-page anchors don't.
+- Footer old-site link text changed from "First version · 2021" to "Still learning · since 2021" (Anton's request; nod to the Michelangelo quote on the 2021 CV site).
+- Car Service Book one-liner rewritten from the CV: "Maintenance tracker for vehicles — record and manage service history in one place."
+- OurWay "Telegram bot" link points to the bot's GitHub repo (same as in the CV).
 - Machine notes: shared Windows PC; `C:\nvm4w` belongs to another user's nvm, Anton uses the plain Node install in `C:\Program Files\nodejs`. `gh` CLI is not installed.

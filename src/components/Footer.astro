@@ -1,5 +1,5 @@
 ---
-import { site } from '../data/site';
+import { site, linkAttrs } from '../data/site';
 
 const { copyrightYear, oldSite } = site.footer;
 ---
@@ -11,7 +11,7 @@ const { copyrightYear, oldSite } = site.footer;
   </div>
   <div class="bottom">
     <span>© {copyrightYear} {site.name.first} {site.name.last}</span>
-    <a href={oldSite.href} class="old-site">{oldSite.label}</a>
+    <a href={oldSite.href} class="old-site" {...linkAttrs(oldSite.href)}>{oldSite.label}</a>
   </div>
 </footer>
 

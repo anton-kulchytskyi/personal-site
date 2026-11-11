@@ -2,12 +2,8 @@
  * All site content lives here. Edit text and URLs in this file only —
  * components just render what they get from it.
  *
- * Anything marked `TODO` is still a placeholder (renders as `#`) and
- * needs a real URL from Anton.
+ * External (http/https) links open in a new tab automatically.
  */
-
-/** Placeholder for links that are not known yet. */
-const TODO = '#';
 
 export interface Link {
   label: string;
@@ -50,9 +46,9 @@ export const site = {
   email,
 
   socials: [
-    { label: 'GitHub', href: 'https://github.com/anton-kulchytskyi' }, // TODO: confirm
-    { label: 'LinkedIn', href: TODO }, // TODO
-    { label: 'Telegram', href: TODO }, // TODO
+    { label: 'GitHub', href: 'https://github.com/anton-kulchytskyi' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/anton-kulchytskyi/' },
+    { label: 'Telegram', href: 'https://t.me/anton_kulchytskyi' },
     { label: 'Email', href: `mailto:${email}` },
   ] satisfies Link[],
 
@@ -80,20 +76,19 @@ export const site = {
         'Family planner for tasks and daily routines — a web app with its own backend and a Telegram bot.',
       stack: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Telegram Bot API'],
       links: [
-        { label: 'Live demo', href: TODO }, // TODO
-        { label: 'Frontend', href: TODO }, // TODO: repo
-        { label: 'Backend', href: TODO }, // TODO: repo
-        { label: 'Telegram bot', href: TODO }, // TODO
+        { label: 'Live demo', href: 'https://ourway-frontend.vercel.app/en' },
+        { label: 'Frontend', href: 'https://github.com/anton-kulchytskyi/ourway-frontend' },
+        { label: 'Backend', href: 'https://github.com/anton-kulchytskyi/ourway-backend' },
+        { label: 'Telegram bot', href: 'https://github.com/anton-kulchytskyi/ourway-bot' },
       ],
     },
     {
       name: 'Car Service Book',
       kind: 'Personal project',
-      // TODO: confirm one-liner ("services, parts and mileage" was a guess)
       description:
-        'Maintenance log for vehicles — record services, parts and mileage in one place.',
+        'Maintenance tracker for vehicles — record and manage service history in one place.',
       stack: ['Next.js', 'TypeScript', 'PostgreSQL (Neon)', 'Vercel'],
-      links: [{ label: 'Live demo', href: TODO }], // TODO
+      links: [{ label: 'Live demo', href: 'https://car-service-book.vercel.app/en' }],
     },
     {
       name: 'Uplevel Restoration',
@@ -103,7 +98,7 @@ export const site = {
       stack: ['Astro', 'HTML', 'CSS', 'JavaScript'],
       links: [
         { label: 'uplevelcorp.ca', href: 'https://uplevelcorp.ca' },
-        { label: 'GitHub', href: TODO }, // TODO: repo
+        { label: 'GitHub', href: 'https://github.com/anton-kulchytskyi/uplevel-astro' },
       ],
     },
   ] satisfies Project[],
@@ -114,6 +109,14 @@ export const site = {
 
   footer: {
     copyrightYear: 2026,
-    oldSite: { label: 'First version · 2021', href: 'https://anton-kulchytskyi.github.io/CV/' },
+    // Nod to the quote on the first CV site: "I'm still learning" — Michelangelo at 87.
+    oldSite: { label: 'Still learning · since 2021', href: 'https://anton-kulchytskyi.github.io/CV/' },
   },
 };
+
+/** Extra attributes so external links open in a new tab. */
+export function linkAttrs(href: string) {
+  return /^https?:\/\//.test(href)
+    ? { target: '_blank', rel: 'noopener noreferrer' }
+    : {};
+}

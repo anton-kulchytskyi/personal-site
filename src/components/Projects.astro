@@ -1,5 +1,5 @@
 ---
-import { site } from '../data/site';
+import { site, linkAttrs } from '../data/site';
 ---
 
 <section id="projects" class="section" aria-labelledby="projects-title">
@@ -16,7 +16,9 @@ import { site } from '../data/site';
           <p class="stack">{project.stack.join(' · ')}</p>
           <div class="links">
             {project.links.map((link) => (
-              <a href={link.href}>{link.label}</a>
+              <a href={link.href} {...linkAttrs(link.href)}>
+                {link.label}
+              </a>
             ))}
           </div>
         </article>
