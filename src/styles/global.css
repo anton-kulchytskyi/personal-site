@@ -1,0 +1,93 @@
+/* Brand tokens — values from logo/tokens.css */
+:root {
+  --ak-ink: #1f2022;
+  --ak-paper: #f2f2f2;
+  --ak-sky-100: #d6e9fc;
+  --ak-sky-300: #93b8e0;
+  --ak-sky-500: #5a7fa4;
+  --ak-steel-400: #6f9cc6;
+  --ak-steel-600: #41607f;
+  --ak-navy-900: #1e2f45;
+  --ak-font-display: 'Barlow Condensed', sans-serif;
+  --ak-font-body: 'Barlow', sans-serif;
+
+  /* Site roles (from design/index.html) */
+  --color-bg: var(--ak-ink);
+  --color-text: var(--ak-paper);
+  --color-muted: #aeb4bd;
+  --color-body-2: #c9ced6;
+  --color-accent: var(--ak-sky-300);
+  --color-divider: #3a3d42;
+  --color-link-line: #4a4f57;
+
+  --container: 1080px;
+  --gutter: clamp(20px, 5vw, 56px);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--ak-font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-link-line);
+}
+
+a:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

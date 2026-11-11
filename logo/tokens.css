@@ -1,0 +1,12 @@
+:root {
+  --ak-ink: #1F2022;
+  --ak-paper: #F2F2F2;
+  --ak-sky-100: #D6E9FC;
+  --ak-sky-300: #93B8E0;
+  --ak-sky-500: #5A7FA4;
+  --ak-steel-400: #6F9CC6;
+  --ak-steel-600: #41607F;
+  --ak-navy-900: #1E2F45;
+  --ak-font-display: 'Barlow Condensed', sans-serif; /* 600, uppercase, letter-spacing .08em */
+  --ak-font-body: 'Barlow', sans-serif;
+}
