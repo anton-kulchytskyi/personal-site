@@ -112,6 +112,6 @@ Decisions:
 - Fonts: only Latin subsets are imported; the h1 font (Barlow Condensed 600) is preloaded.
 - `trailingSlash: 'always'`; sitemap excludes the 404 page.
 - `public/robots.txt` ends up at `/personal-site/robots.txt`, which crawlers ignore (they only read the domain root). Harmless; submit the sitemap in Google Search Console instead.
-- Hero mark (`src/components/HeroMark.astro`): decorative animated AK mark on the right of the hero at ≥ 960px only (hidden below, hero unchanged). Pure CSS: facets assemble once on load, then a 9s loop (Anton wanted constant motion and a visible sweep): rest with gentle breathing → facets drift out ⅓ of their assembly path → hang → spring back with a small overshoot → white sweep at 35% as they lock in; `prefers-reduced-motion` shows a static mark. Colors via tokens (`--ak-highlight` added for the sweep). Lighthouse still 100×4 on mobile and desktop.
+- An animated AK mark in the hero was tried and removed at Anton's request (didn't fit the design). The hero spot is free if he wants something else there later.
 - On Windows, stopping a background `pnpm dev/preview` task leaves the `node astro.mjs` child running; kill it by port.
 - Machine notes: shared Windows PC; `C:\nvm4w` belongs to another user's nvm, Anton uses the plain Node install in `C:\Program Files\nodejs`. `gh` CLI is not installed.

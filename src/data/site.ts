@@ -88,7 +88,10 @@ export const site = {
       description:
         'Maintenance tracker for vehicles — record and manage service history in one place.',
       stack: ['Next.js', 'TypeScript', 'PostgreSQL (Neon)', 'Vercel'],
-      links: [{ label: 'Live demo', href: 'https://car-service-book.vercel.app/en' }],
+      links: [
+        { label: 'Live demo', href: 'https://car-service-book.vercel.app/en' },
+        { label: 'GitHub', href: 'https://github.com/anton-kulchytskyi/car-service-book' },
+      ],
     },
     {
       name: 'Uplevel Restoration',
