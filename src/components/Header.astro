@@ -1,11 +1,19 @@
 ---
 import { site } from '../data/site';
 
+interface Props {
+  /** Where the logo links to (the 404 page points it at the home page). */
+  homeHref?: string;
+  /** Prefix for in-page nav anchors when rendered outside the home page. */
+  navBase?: string;
+}
+
+const { homeHref = '#top', navBase = '' } = Astro.props;
 const homeLabel = `${site.name.first} ${site.name.last}, home`;
 ---
 
 <header class="header">
-  <a href="#top" class="logo" aria-label={homeLabel}>
+  <a href={homeHref} class="logo" aria-label={homeLabel}>
     <svg aria-hidden="true" width="36" height="28" viewBox="0 0 276 216">
       <polygon points="108,0 0,216 60,216 84,168 108.8,168 108.8,1.6" fill="#93B8E0"></polygon>
       <polygon points="216,0 276,0 221.6,108.8 161.6,108.8" fill="#93B8E0"></polygon>
@@ -14,7 +22,7 @@ const homeLabel = `${site.name.first} ${site.name.last}, home`;
     </svg>
   </a>
   <nav aria-label="Main" class="nav">
-    {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    {site.nav.map((item) => <a href={`${navBase}${item.href}`}>{item.label}</a>)}
   </nav>
 </header>
 

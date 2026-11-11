@@ -94,8 +94,8 @@ The phone number is intentionally **not** on the site.
 
 - [x] Phase 1 — Scaffold
 - [x] Phase 2 — Sections. Verified against design/index.html at 1440/390/360 px: element boxes, font sizes and colors match exactly.
-- [x] Phase 3 — Content (awaiting Anton's confirmation to start Phase 4). All links taken from Anton's CV PDF; GitHub URL confirmed.
-- [ ] Phase 4 — SEO & polish
+- [x] Phase 3 — Content. All links taken from Anton's CV PDF; GitHub URL confirmed.
+- [x] Phase 4 — SEO & polish (awaiting Anton's confirmation to start Phase 5). Lighthouse 12 mobile on `astro preview`: Performance 100, Accessibility 100, Best Practices 100, SEO 100 (FCP 1.2 s, LCP 1.4 s, TBT 0 ms, CLS 0).
 - [ ] Phase 5 — Deploy
 
 Decisions:
@@ -108,4 +108,8 @@ Decisions:
 - Footer old-site link text changed from "First version · 2021" to "Still learning · since 2021" (Anton's request; nod to the Michelangelo quote on the 2021 CV site).
 - Car Service Book one-liner rewritten from the CV: "Maintenance tracker for vehicles — record and manage service history in one place."
 - OurWay "Telegram bot" link points to the bot's GitHub repo (same as in the CV).
+- OG image: `public/og.png` is committed; source is `scripts/og/og.html`, regenerate with `pnpm og` (headless Chrome).
+- Fonts: only Latin subsets are imported; the h1 font (Barlow Condensed 600) is preloaded.
+- `trailingSlash: 'always'`; sitemap excludes the 404 page.
+- `public/robots.txt` ends up at `/personal-site/robots.txt`, which crawlers ignore (they only read the domain root). Harmless; submit the sitemap in Google Search Console instead.
 - Machine notes: shared Windows PC; `C:\nvm4w` belongs to another user's nvm, Anton uses the plain Node install in `C:\Program Files\nodejs`. `gh` CLI is not installed.

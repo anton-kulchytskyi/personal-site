@@ -107,6 +107,12 @@ export const site = {
     heading: 'Let’s talk',
   },
 
+  notFound: {
+    heading: 'Not found',
+    text: 'This page doesn’t exist or has moved.',
+    linkLabel: 'Back to the home page',
+  },
+
   footer: {
     copyrightYear: 2026,
     // Nod to the quote on the first CV site: "I'm still learning" — Michelangelo at 87.
